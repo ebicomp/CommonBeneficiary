@@ -1,0 +1,12 @@
+E:\CommonBeneficiary\CommonBeneficiary.Domain\bin\Debug\net6.0\CommonBeneficiary.Domain.deps.json
+E:\CommonBeneficiary\CommonBeneficiary.Domain\bin\Debug\net6.0\CommonBeneficiary.Domain.dll
+E:\CommonBeneficiary\CommonBeneficiary.Domain\bin\Debug\net6.0\CommonBeneficiary.Domain.pdb
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.csproj.AssemblyReference.cache
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.GeneratedMSBuildEditorConfig.editorconfig
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.AssemblyInfoInputs.cache
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.AssemblyInfo.cs
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.csproj.CoreCompileInputs.cache
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.dll
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\refint\CommonBeneficiary.Domain.dll
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\CommonBeneficiary.Domain.pdb
+E:\CommonBeneficiary\CommonBeneficiary.Domain\obj\Debug\net6.0\ref\CommonBeneficiary.Domain.dll
