@@ -1,35 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "E:\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj": {}
+    "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj": {}
   },
   "projects": {
-    "E:\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj": {
+    "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj",
+        "projectUniqueName": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj",
         "projectName": "CommonBeneficiary.Application",
-        "projectPath": "E:\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj",
-        "packagesPath": "C:\\Users\\ab.karimi\\.nuget\\packages\\",
-        "outputPath": "E:\\CommonBeneficiary\\CommonBeneficiary.Application\\obj\\",
+        "projectPath": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Application\\CommonBeneficiary.Application.csproj",
+        "packagesPath": "C:\\Users\\SONY\\.nuget\\packages\\",
+        "outputPath": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ab.karimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
+          "C:\\Users\\SONY\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -37,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj": {
-                "projectPath": "E:\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj"
+              "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj": {
+                "projectPath": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj"
               }
             }
           }
@@ -90,32 +81,23 @@
         }
       }
     },
-    "E:\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj": {
+    "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj",
+        "projectUniqueName": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj",
         "projectName": "CommonBeneficiary.Domain",
-        "projectPath": "E:\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj",
-        "packagesPath": "C:\\Users\\ab.karimi\\.nuget\\packages\\",
-        "outputPath": "E:\\CommonBeneficiary\\CommonBeneficiary.Domain\\obj\\",
+        "projectPath": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Domain\\CommonBeneficiary.Domain.csproj",
+        "packagesPath": "C:\\Users\\SONY\\.nuget\\packages\\",
+        "outputPath": "I:\\Projects\\CommonBeneficiary\\CommonBeneficiary.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\Offline Packages",
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\Offline Packages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ab.karimi\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress .NET Core Desktop 20.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.1.config",
+          "C:\\Users\\SONY\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.2\\.NET Core Desktop Libraries\\System\\Components\\Packages": {},
-          "C:\\Program Files (x86)\\DevExpress 21.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
