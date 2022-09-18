@@ -10,5 +10,6 @@ namespace CommonBeneficiary.Application.DTOs.RelationTypes
     {
         public string Code { get; set; }
         public string Name { get; set; }
+
     }
 }
