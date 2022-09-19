@@ -8,8 +8,6 @@
   <ItemGroup>
     <Folder Include="Contracts\Infrastructure\" />
     <Folder Include="DTOs\RelationTypes\Validators\" />
-    <Folder Include="Features\RelationTypes\Handlers\Commands\" />
-    <Folder Include="Features\RelationTypes\Requests\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

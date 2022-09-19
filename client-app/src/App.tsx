@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
 import axios from 'axios';
+import { Header, List } from 'semantic-ui-react';
 
 
 function App() {
@@ -14,11 +14,13 @@ function App() {
   } , []);
   return (
     <div className="App">
-      <header className="App-header">
-        <ul>
-          {relationTypes.map((rel:any)=>(<li>{rel.code}</li>))}
-        </ul>
-      </header>
+       <Header icon='users' as='h2' content='for test'/>
+       <List>
+          {relationTypes.map((rel:any)=>(
+            <List.Item>{rel.code}</List.Item>
+          ))}
+        </List>
+      
     </div>
   );
 }
