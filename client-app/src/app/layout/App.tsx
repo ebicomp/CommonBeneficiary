@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Header, List } from 'semantic-ui-react';
+import { Container, Header, List } from 'semantic-ui-react';
 import { RelationType } from '../models/RelationTypes/relationType';
+import { NavBar } from './NavBar';
 
 
 function App() {
@@ -15,12 +16,16 @@ function App() {
   } , []);
   return (
     <div className="App">
-       <Header icon='users' as='h2' content='for test'/>
-       <List>
-          {relationTypes.map((rel)=>(
-            <List.Item>{rel.code}</List.Item>
-          ))}
-        </List>
+       <NavBar/> 
+       <Container style={{marginTop:'4em'}}>
+        <Header icon='users' as='h2' content='for test'/>
+        <List>
+            {relationTypes.map((rel)=>(
+              <List.Item>{rel.code}</List.Item>
+            ))}
+          </List>
+       </Container>
+
       
     </div>
   );

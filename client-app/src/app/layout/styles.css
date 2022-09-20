@@ -1,1 +1,16 @@
 
+.ui * {
+    direction: rtl !important;
+    text-align: right !important;
+  }
+  *{
+    direction: rtl !important;
+    text-align: right !important;
+  }
+
+  body{
+    background-color: #EAEAEA !important;
+  }
+  .ui.inverted.top.fixed.menu{
+    background-image: linear-gradient(135deg,rgb(32,167,172) 0%, rgb(33,138,174) 69% , rgb(24,42,115) 89%) !important;
+  }
