@@ -1,20 +1,22 @@
+import { observer } from "mobx-react-lite";
 import { ChangeEvent, useState } from "react";
 import { Button, Form, Segment } from "semantic-ui-react"
-import { RelationType } from "../../../models/RelationTypes/relationType"
-interface Props{
-    relationtype:RelationType
-}
+import { useStore } from "../../../app/stores/store";
 
-export const RelationTypeForm = ({relationtype:selectedRelationType}:Props) => {
+
+
+ const RelationTypeForm = () => {
+    const{relationTypeStore} = useStore();
+    const{selectedRelationType , updateRelationType , createRelationType} = relationTypeStore;
     const initialState = selectedRelationType??{
-        id:'',
+        id:0,
         code:'',
         name:''
     };
     const [relationType, setRelationType] = useState(initialState); 
 
     const handleSubmit = ()=>{
-        console.log(relationType);
+        relationType.id? updateRelationType(relationType): createRelationType(relationType);
     }
 
     const handleCHange= (event:ChangeEvent<HTMLInputElement>)=>{
@@ -33,3 +35,4 @@ return(
     </Segment>
 )
 }
+export default observer(RelationTypeForm) ;

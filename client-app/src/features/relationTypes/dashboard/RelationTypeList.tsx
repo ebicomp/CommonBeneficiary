@@ -1,12 +1,13 @@
-import { Button, Table } from "semantic-ui-react";
-import { RelationType } from "../../../models/RelationTypes/relationType";
+import { Button, Icon, Table } from "semantic-ui-react";
+import { useStore } from "../../../app/stores/store";
 
 
-interface Props{
-    relationTypes:RelationType[];
-}
 
-export const RelationTypeList = ({relationTypes}:Props) => {
+export const RelationTypeList = () => {
+
+  const {relationTypeStore} = useStore();
+  const {relationTypes} = relationTypeStore;
+
     return(
         <Table celled>
     <Table.Header>
@@ -24,12 +25,15 @@ export const RelationTypeList = ({relationTypes}:Props) => {
             <Table.Row key={rl.id}>
             <Table.Cell>{rl.code}</Table.Cell>
             <Table.Cell>{rl.name}</Table.Cell>
-            <Table.Cell><Button positive content='ویرایش'/></Table.Cell>
+            <Table.Cell>
+              <Button icon positive >
+                <Icon name='eye' />
+              </Button>
+
+            </Table.Cell>
           </Table.Row>       
         ))
-    }
-     
-      
+    }     
     </Table.Body>
     </Table>
     );

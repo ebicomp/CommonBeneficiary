@@ -6,13 +6,8 @@ interface Props{
 export const LoadingComponent = ({inverted=true, content = 'در حال دریافت اطلاعات...'}:Props) => {
     
     return(
-        <div>
-        <Segment>
           <Dimmer active={true} inverted={inverted}>
-            <Loader indeterminate>{content}</Loader>
+            <Loader>{content}</Loader>
           </Dimmer>
-        </Segment>
-      </div>
     )
-    
 }
