@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { Button, Icon, Table } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 
@@ -21,18 +22,20 @@ export const RelationTypeList = () => {
     <Table.Body>
 
     {
-        relationTypes.map(rl=>(
+        relationTypes.map(rl=>{
+          return (
             <Table.Row key={rl.id}>
-            <Table.Cell>{rl.code}</Table.Cell>
-            <Table.Cell>{rl.name}</Table.Cell>
-            <Table.Cell>
-              <Button icon positive >
-                <Icon name='eye' />
-              </Button>
+              <Table.Cell>{rl.code}</Table.Cell>
+              <Table.Cell>{rl.name}</Table.Cell>
+              <Table.Cell>
+                <Button icon positive as={NavLink} to ={`/relationTypes/${rl.id}`}>
+                  <Icon name='eye' />
+                </Button>
 
-            </Table.Cell>
-          </Table.Row>       
-        ))
+              </Table.Cell>
+            </Table.Row>
+          );
+        })
     }     
     </Table.Body>
     </Table>

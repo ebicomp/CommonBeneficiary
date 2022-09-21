@@ -1,14 +1,26 @@
-import { Grid, List, Segment } from "semantic-ui-react";
-import RelationTypeForm from "../form/RelationTypeForm";
+import { observer } from "mobx-react-lite";
+import { useEffect } from "react";
+import { Segment } from "semantic-ui-react";
+import { LoadingComponent } from "../../../app/layout/LoadingComponent";
+import { useStore } from "../../../app/stores/store";
 
 import { RelationTypeList } from "./RelationTypeList";
 
 
-export const RelationTypeDashboard = () => {
+ const RelationTypeDashboard = () => {
+
+  const{relationTypeStore} = useStore();
+
+  useEffect(()=>{
+    relationTypeStore.loadRelationTypes();
+  } , []);
+
+  if(relationTypeStore.loadingInitial) return <LoadingComponent />
+
       return (
         <Segment>
           <RelationTypeList  />
-          <RelationTypeForm />
         </Segment>
     );
 }
+export default observer(RelationTypeDashboard);

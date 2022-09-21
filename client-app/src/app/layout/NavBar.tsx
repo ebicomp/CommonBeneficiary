@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Icon, Menu } from 'semantic-ui-react'
 
 export const NavBar = () => {
@@ -10,31 +12,20 @@ export const NavBar = () => {
   return (
     <Menu inverted fixed='top'>
     <Container>
-        <Menu.Item header>
+        <Menu.Item header as={NavLink} exact="true" to='/'>
         <Icon name='block layout' style={{marginLeft:10}} />
             سامانه ذی نفع واحد
-            </Menu.Item>
-        <Menu.Item
-        name='editorials'
-        active={activeItem === 'editorials'}
-        onClick={handleItemClick}
-        >
-        انواع روابط
         </Menu.Item>
 
-        <Menu.Item
-        name='reviews'
-        active={activeItem === 'reviews'}
-        onClick={handleItemClick}
-        >
-        ذی نفع واحد
+        <Menu.Item name='relationTypes' as={NavLink} to='/relationTypes'>
+          انواع روابط
         </Menu.Item>
 
-        <Menu.Item
-        name='upcomingEvents'
-        active={activeItem === 'upcomingEvents'}
-        onClick={handleItemClick}
-        >
+        <Menu.Item name='createRelationType' as={NavLink} to= '/createRelationType'>
+        ساخت رابطه جدید
+        </Menu.Item>
+
+        <Menu.Item name='upcomingEvents' >
         گراف
         </Menu.Item>
     </Container>
