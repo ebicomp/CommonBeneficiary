@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router-dom';
 import HomePage from '../../features/home/HomePage';
 import RelationTypeForm from '../../features/relationTypes/form/RelationTypeForm';
 import RelationTypeDashboard from '../../features/relationTypes/dashboard/RelationTypeDashboard';
+import RelationTypeDetail from '../../features/relationTypes/details/relationTypeDetail';
+
 
 function App() {
 
@@ -17,6 +19,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/relationTypes" element={<RelationTypeDashboard />} />
           <Route path="/relationTypes/:id" element={ <RelationTypeForm /> } />
+          <Route path="/createRetionType" element={ <RelationTypeForm /> } />
+          <Route path="/relationTypeDetail/:id" element={ <RelationTypeDetail /> } />
         </Routes>
        </Container>
     </>

@@ -1,16 +1,18 @@
+import { observer } from "mobx-react-lite";
 import { NavLink } from "react-router-dom";
 import { Button, Icon, Table } from "semantic-ui-react";
 import { useStore } from "../../../app/stores/store";
 
 
 
-export const RelationTypeList = () => {
+ const RelationTypeList = () => {
 
   const {relationTypeStore} = useStore();
   const {relationTypes} = relationTypeStore;
 
     return(
-        <Table celled>
+      <>
+    <Table celled>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell>کد رابطه</Table.HeaderCell>
@@ -20,7 +22,6 @@ export const RelationTypeList = () => {
     </Table.Header>
 
     <Table.Body>
-
     {
         relationTypes.map(rl=>{
           return (
@@ -28,7 +29,7 @@ export const RelationTypeList = () => {
               <Table.Cell>{rl.code}</Table.Cell>
               <Table.Cell>{rl.name}</Table.Cell>
               <Table.Cell>
-                <Button icon positive as={NavLink} to ={`/relationTypes/${rl.id}`}>
+                <Button icon positive as={NavLink} to ={`/relationTypeDetail/${rl.id}`}>
                   <Icon name='eye' />
                 </Button>
 
@@ -39,5 +40,12 @@ export const RelationTypeList = () => {
     }     
     </Table.Body>
     </Table>
+      <Button positive as={NavLink} to='/createRetionType'>
+        ایجاد رابطه جدید
+        <Icon name="cog"/>
+        </Button>
+    </>
     );
 }
+
+export default observer(RelationTypeList);

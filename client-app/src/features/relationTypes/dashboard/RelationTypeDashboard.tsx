@@ -3,8 +3,9 @@ import { useEffect } from "react";
 import { Segment } from "semantic-ui-react";
 import { LoadingComponent } from "../../../app/layout/LoadingComponent";
 import { useStore } from "../../../app/stores/store";
+import RelationTypeList from "./RelationTypeList";
 
-import { RelationTypeList } from "./RelationTypeList";
+
 
 
  const RelationTypeDashboard = () => {

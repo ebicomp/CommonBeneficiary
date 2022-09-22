@@ -15,7 +15,7 @@ const RelationTypes ={
     list: ()=> requests.get<RelationType[]>('/relationType'),
     details:(id:number)=> requests.get<RelationType>(`/relationType/${id}`),
     create:(relatoinType:RelationType)=> requests.post<RelationType>('/relationType', relatoinType),
-    update:(RelationType:RelationType)=> requests.put<RelationType>('/relationType',RelationType),
+    update:(RelationType:RelationType)=> requests.put<RelationType>(`/relationType/${RelationType.id}`,RelationType),
     delete:(id:number) => requests.delete<RelationType>(`/relationType/${id}`)
 }
 

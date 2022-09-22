@@ -32,6 +32,24 @@ export default class RelationTypeStore {
             this.setLoadingInitial(false);
         }
     }
+    loadRelationType = async(id:number)=>{
+        this.setLoadingInitial(true);
+        try{
+            const relationType = await agent.RelationTypes.details(id);
+            this.setRelationType(relationType);
+            this.setLoadingInitial(false);
+            return relationType;
+
+        }catch(error){
+            console.log(error);
+            this.setLoadingInitial(false);
+        }
+
+    }
+    setRelationType=(relationType:RelationType)=>
+    {
+        this.selectedRelationType = relationType;
+    }
 
     setLoadingInitial = (state:boolean)=>{
         this.loadingInitial = state;
