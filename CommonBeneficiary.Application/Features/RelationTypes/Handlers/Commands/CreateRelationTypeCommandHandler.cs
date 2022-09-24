@@ -1,5 +1,8 @@
 ﻿using AutoMapper;
 using CommonBeneficiary.Application.Contracts.Persistance;
+using CommonBeneficiary.Application.Core.Extenstions.Validations;
+using CommonBeneficiary.Application.Core.Responses;
+using CommonBeneficiary.Application.DTOs.RelationTypes.Validators;
 using CommonBeneficiary.Application.Features.RelationTypes.Requests.Commands;
 using CommonBeneficiary.Domain;
 using MediatR;
@@ -11,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Commands
 {
-    public class CreateRelationTypeCommandHandler : IRequestHandler<CreateRelationTypeCommand>
+    public class CreateRelationTypeCommandHandler : IRequestHandler<CreateRelationTypeCommand, BaseResponse<RelationType>>
     {
         private readonly IRelationTypeRepository _repository;
         private readonly IMapper _mapper;
@@ -21,11 +24,18 @@ namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Commands
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<Unit> Handle(CreateRelationTypeCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<RelationType>> Handle(CreateRelationTypeCommand request, CancellationToken cancellationToken)
         {
+            var validator = new RelationTypeDtoValidator();
+            var validationResult = validator.Validate(request.RelationTypeDto);
+            if (!validationResult.IsValid)
+            {
+                return BaseResponse<RelationType>.Failure("خطا در ساخت رابطه جدید", validationResult.GetErrorMessages());
+            }
             var relationType = _mapper.Map<RelationType>(request.RelationTypeDto);
-            await _repository.Add(relationType);
-            return Unit.Value;
+            var result = await _repository.Add(relationType);
+            if (result == null) return BaseResponse<RelationType>.Success(errors: new List<string> { "خطا در ورود اطلاعات" }, value: relationType);
+            return BaseResponse<RelationType>.Success("رابطه جدید ساخته شد", value: relationType);
         }
     }
 }

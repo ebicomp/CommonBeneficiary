@@ -7,12 +7,14 @@ import HomePage from '../../features/home/HomePage';
 import RelationTypeForm from '../../features/relationTypes/form/RelationTypeForm';
 import RelationTypeDashboard from '../../features/relationTypes/dashboard/RelationTypeDashboard';
 import RelationTypeDetail from '../../features/relationTypes/details/relationTypeDetail';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
 
   return (
     <>
+        <ToastContainer position='bottom-right' />
        <NavBar/> 
        <Container style={{marginTop:'4em'}}>
         <Routes>

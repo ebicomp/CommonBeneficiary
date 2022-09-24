@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CommonBeneficiary.Application.Contracts.Persistance;
+using CommonBeneficiary.Application.Core.Responses;
 using CommonBeneficiary.Application.DTOs.RelationTypes;
 using CommonBeneficiary.Application.Features.RelationTypes.Requests.Commands;
 using CommonBeneficiary.Domain;
@@ -12,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Commands
 {
-    public class UpdateRelationTypeCommandHandler : IRequestHandler<UpdateRelationTypeCommand>
+    public class UpdateRelationTypeCommandHandler : IRequestHandler<UpdateRelationTypeCommand , BaseResponse<Unit>>
     {
         private readonly IRelationTypeRepository _repository;
         private readonly IMapper _mapper;
@@ -22,13 +23,16 @@ namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Commands
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<Unit> Handle(UpdateRelationTypeCommand request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<Unit>> Handle(UpdateRelationTypeCommand request, CancellationToken cancellationToken)
         {
             var relationType = await _repository.Get(request.RelationTypeDto.Id);
-            //relationType = _mapper.Map<RelationType>(request.RelationTypeDto);
+            if (relationType == null) return BaseResponse<Unit>.Failure(errors: new List<string> { "رابطه با کد داده شده شناسایی نشد" });
+
             _mapper.Map(request.RelationTypeDto, relationType);
-            await _repository.Update(relationType);
-            return Unit.Value;
+            var result = await _repository.Update(relationType);
+            if (result > 0) return BaseResponse<Unit>.Success(message:"به روزرسانی با موفقیت انجام شد");
+
+            return BaseResponse<Unit>.Failure(errors: new List<string> { "خطا در به روزرسانی رابطه" });
         }
     }
 }

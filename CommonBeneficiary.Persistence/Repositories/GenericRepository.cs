@@ -23,10 +23,10 @@ namespace CommonBeneficiary.Persistence.Repositories
             return entity;
         }
 
-        public async Task Delete(T entity)
+        public async Task<int> Delete(T entity)
         {
             _context.Set<T>().Remove(entity);
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
 
         }
 
@@ -48,10 +48,10 @@ namespace CommonBeneficiary.Persistence.Repositories
             return result;
         }
 
-        public async Task Update(T entity)
+        public async Task<int> Update(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CommonBeneficiary.Application.Contracts.Persistance;
+using CommonBeneficiary.Application.Core.Responses;
 using CommonBeneficiary.Application.DTOs.RelationTypes;
 using CommonBeneficiary.Application.Features.RelationTypes.Requests.Queries;
 using MediatR;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Queries
 {
-    public class GetRelationTypeListRequestHandler : IRequestHandler<GetRelationTypeListRequest, List<RelationTypeDto>>
+    public class GetRelationTypeListRequestHandler : IRequestHandler<GetRelationTypeListRequest, BaseResponse<List<RelationTypeDto>>>
     {
         private readonly IRelationTypeRepository _relationTypeRepository;
         private readonly IMapper _mapper;
@@ -21,10 +22,11 @@ namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Queries
             _relationTypeRepository = relationTypeRepository;
             _mapper = mapper;
         }
-        public async Task<List<RelationTypeDto>> Handle(GetRelationTypeListRequest request, CancellationToken cancellationToken)
+        public async Task<BaseResponse<List<RelationTypeDto>>> Handle(GetRelationTypeListRequest request, CancellationToken cancellationToken)
         {
             var result = await _relationTypeRepository.GetAll();
-            return _mapper.Map<List<RelationTypeDto>>(result);
+            var relationTypes = _mapper.Map<List<RelationTypeDto>>(result);
+            return BaseResponse<List<RelationTypeDto>>.Success(value: relationTypes);
         }
     }
 }

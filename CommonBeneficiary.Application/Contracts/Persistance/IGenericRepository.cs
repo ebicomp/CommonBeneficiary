@@ -12,7 +12,7 @@ namespace CommonBeneficiary.Application.Contracts.Persistance
         Task<bool> Exist(long id);
         Task<T> Get(long id);
         Task<T> Add(T entity);
-        Task Update(T entity);
-        Task Delete(T entity);
+        Task<int> Update(T entity);
+        Task<int> Delete(T entity);
     }
 }

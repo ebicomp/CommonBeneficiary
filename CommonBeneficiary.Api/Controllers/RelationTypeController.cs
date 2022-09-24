@@ -3,6 +3,7 @@ using CommonBeneficiary.Application.Features.RelationTypes.Requests.Commands;
 using CommonBeneficiary.Application.Features.RelationTypes.Requests.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Reflection.Metadata;
 
 namespace CommonBeneficiary.Api.Controllers
 {
@@ -10,25 +11,26 @@ namespace CommonBeneficiary.Api.Controllers
     {
 
         [HttpGet]
-        public async Task<ActionResult<List<RelationTypeDto>>> GetRelationTypes()
+        public async Task<IActionResult> GetRelationTypes()
         {
             var request = new GetRelationTypeListRequest();
             var result = await Mediator.Send(request);
-            return Ok(result);
+            return HandleResponse(result);
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<RelationTypeDto>> GetRelationType(long id)
+        public async Task<IActionResult> GetRelationType(long id)
         {
             var request = new GetRelationTypeDetailRequest { Id = id };
             var result = await Mediator.Send(request);
-            return Ok(result);
+            return HandleResponse(result);
+
         }
         [HttpPost]
         public async Task<IActionResult> CreateRelationType(RelationTypeDto relationTypeDto)
         {
             var command = new CreateRelationTypeCommand { RelationTypeDto = relationTypeDto };
             var result = await Mediator.Send(command);
-            return Ok(result);
+            return HandleResponse(result);
 
         }
 
@@ -38,7 +40,7 @@ namespace CommonBeneficiary.Api.Controllers
             relationTypeDto.Id = id;
             var command = new UpdateRelationTypeCommand {  RelationTypeDto = relationTypeDto };
             var result = await Mediator.Send(command);
-            return Ok(result);
+            return HandleResponse(result);
         }
 
         [HttpDelete("{id}")]
@@ -46,7 +48,7 @@ namespace CommonBeneficiary.Api.Controllers
         {
             var command = new DeleteRelationTypeCommand{ Id = id};
             var result = await Mediator.Send(command);
-            return Ok(result);
+            return HandleResponse(result);
         }
     }
 }
