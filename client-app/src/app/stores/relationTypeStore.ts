@@ -71,8 +71,10 @@ export default class RelationTypeStore {
             this.selectedRelationType = relationType;
             this.loading = false;
         }catch(error){
+            
             console.log(error);
             this.loading = false;
+            return error;
         }
     }
     updateRelationType = async(relationType:RelationType)=>{
@@ -87,6 +89,7 @@ export default class RelationTypeStore {
         }catch(error){
             console.log(error);
             this.loading = false;
+            return error;
         }
     }
     deleteRelationType = async(id:number)=>{

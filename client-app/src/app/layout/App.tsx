@@ -8,6 +8,9 @@ import RelationTypeForm from '../../features/relationTypes/form/RelationTypeForm
 import RelationTypeDashboard from '../../features/relationTypes/dashboard/RelationTypeDashboard';
 import RelationTypeDetail from '../../features/relationTypes/details/relationTypeDetail';
 import { ToastContainer } from 'react-toastify';
+import NotFound from '../../features/erros/NotFound';
+
+
 
 
 function App() {
@@ -20,9 +23,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/relationTypes" element={<RelationTypeDashboard />} />
-          <Route path="/relationTypes/:id" element={ <RelationTypeForm /> } />
+          <Route path="/updateRelatoinType/:id" element={ <RelationTypeForm /> } />
           <Route path="/createRetionType" element={ <RelationTypeForm /> } />
           <Route path="/relationTypeDetail/:id" element={ <RelationTypeDetail /> } />
+          <Route path='*' element={ <NotFound /> } />
         </Routes>
        </Container>
     </>

@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
 using CommonBeneficiary.Application.Contracts.Persistance;
+using CommonBeneficiary.Application.Core.Extenstions.Validations;
 using CommonBeneficiary.Application.Core.Responses;
 using CommonBeneficiary.Application.DTOs.RelationTypes;
+using CommonBeneficiary.Application.DTOs.RelationTypes.Validators;
 using CommonBeneficiary.Application.Features.RelationTypes.Requests.Commands;
 using CommonBeneficiary.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +30,14 @@ namespace CommonBeneficiary.Application.Features.RelationTypes.Handlers.Commands
         {
             var relationType = await _repository.Get(request.RelationTypeDto.Id);
             if (relationType == null) return BaseResponse<Unit>.Failure(errors: new List<string> { "رابطه با کد داده شده شناسایی نشد" });
+
+            var validator = new RelationTypeDtoValidator();
+            var validateResult = validator.Validate(request.RelationTypeDto);
+
+            if (!validateResult.IsValid)
+            {
+                return BaseResponse<Unit>.Failure(errors: validateResult.GetErrorMessages());
+            }
 
             _mapper.Map(request.RelationTypeDto, relationType);
             var result = await _repository.Update(relationType);

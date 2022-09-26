@@ -1,11 +1,13 @@
 import { RelationType } from './../models/RelationTypes/relationType';
 import axios, { AxiosError, AxiosResponse } from "axios";
-import { toast } from 'react-toastify/dist/core';
+import { toast } from 'react-toastify';
+
 axios.defaults.baseURL = 'http://localhost:5110/api';
 
-// axios.interceptors.response.use(async response =>{
-//     return response;
-// }, (error:AxiosError)=>{
+axios.interceptors.response.use(async response =>{
+    return response;
+}
+// , (error:AxiosError)=>{
 //     const {data , status} = error.response!;
 //     switch(status){
 //         case 400:
@@ -16,7 +18,7 @@ axios.defaults.baseURL = 'http://localhost:5110/api';
 //             break;
 
 //         case 404:
-//             toast.error('unauthorized');
+//             toast.error('not found');
 //             break;
 
 //         case 500:
@@ -25,7 +27,8 @@ axios.defaults.baseURL = 'http://localhost:5110/api';
 
 //     }
 //     return Promise.reject(error);
-// });
+// }
+);
 
 const responseBody = <T> (response:AxiosResponse<T>)=>response.data;
 

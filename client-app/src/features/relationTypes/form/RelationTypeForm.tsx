@@ -36,8 +36,15 @@ import { useNavigate  } from "react-router-dom";
 
     const handleSubmit = ()=>{
         console.log(relationType);
-        relationType.id ===0 ?  createRelationType(relationType) :updateRelationType(relationType);
-        navigate('/relationTypes');
+        // relationType.id ===0 ?  createRelationType(relationType) :updateRelationType(relationType);
+
+        if(relationType.id ===0){
+            createRelationType(relationType).then(Response=>console.log('error from from ' + Response));
+        }
+        else{
+            updateRelationType(relationType).then(Response=>console.log('error from from ' + Response));
+        }
+        // navigate('/relationTypes');
     }
 
     const handleCHange= (event:ChangeEvent<HTMLInputElement>)=>{

@@ -44,7 +44,7 @@ const RelationTypeDetail = () => {
                 بازگشت
                 <Icon name='cancel'></Icon>
             </Button>
-            <Button basic as={NavLink} to={`/relationTypeForm/${selectedRelationType.id}`}>
+            <Button basic as={NavLink} to={`/updateRelatoinType/${selectedRelationType.id}`}>
                 ویرایش
                 <Icon name='edit'></Icon>
             </Button>
